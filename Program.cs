@@ -141,18 +141,6 @@ namespace UTBDochazkaProjekt
         }
     }
 
-    public class RandomFact
-    {
-        public string id;
-        public string factText;
-
-        public RandomFact(string ID, string factTextParam)
-        {
-            id = ID;
-            factText = factTextParam;
-        }
-    }
-
     public class UtilityMethods
     {
         public string generateID()
