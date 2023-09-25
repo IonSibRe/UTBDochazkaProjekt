@@ -83,8 +83,11 @@ namespace UTBDochazkaProjekt
                         Console.Write("Napiste popis ukolu: ");
                         string popis = Console.ReadLine();
 
+                        var utilMethods = new UtilityMethods();
+                        string id = utilMethods.generateID();
+
                         try {
-                            ukoly.Add(new Ukol(UtilityMethods.generateID(), popis));
+                            ukoly.Add(new Ukol(id, popis));
                         } catch (Exception e) {
                             Console.WriteLine($"Exception: {e}");
                         }
@@ -138,9 +141,21 @@ namespace UTBDochazkaProjekt
         }
     }
 
-    public static class UtilityMethods
+    public class RandomFact
     {
-        public static string generateID()
+        public string id;
+        public string factText;
+
+        public RandomFact(string ID, string factTextParam)
+        {
+            id = ID;
+            factText = factTextParam;
+        }
+    }
+
+    public class UtilityMethods
+    {
+        public string generateID()
         {
             Guid guid = Guid.NewGuid();
 
